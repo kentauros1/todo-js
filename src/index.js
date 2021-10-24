@@ -29,9 +29,17 @@ const onClickAdd = () => {
     //liタグの生成
     const li = document.createElement("li");
     li.innerText = text;
+
     //戻るボタンの生成
     const backButton = document.createElement("button");
     backButton.innerText = "戻す";
+    backButton.addEventListener("click", () => {
+      const deleteTarget = backButton.parentNode;
+      document.getElementById("complete-list").removeChild(deleteTarget); //取得した親要素の削除
+      //テキストの取得
+      const text = backButton.parentNode.firstElementChild.innerText;
+      console.log(text);
+    });
 
     //divタグの子要素に各要素を追加
     addTarget.appendChild(li);
